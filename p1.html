@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kalimantan SmartChef</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT MODERN -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR BARU -->
+
+    <div class="navbar">
+
+        <div class="nav-left">
+            <i class="fa-solid fa-robot"></i>
+            <span>Kalimantan SmartChef AI</span>
+        </div>
+
+        <div class="nav-right">
+
+            <div class="status-pill">
+                <span class="status-dot"></span>
+                AI Online
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <h1>Kalimantan SmartChef AI</h1>
+
+        <div class="button-group">
+
+            <button id="startBtn">
+                <i class="fa-solid fa-camera"></i>
+                Start Kamera
+            </button>
+
+            <button id="freezeBtn" disabled>
+                <i class="fa-solid fa-snowflake"></i>
+                Freeze
+            </button>
+
+            <button id="uploadBtn">
+                <i class="fa-solid fa-upload"></i>
+                Upload Gambar
+            </button>
+
+            <button id="uploadResumeBtn" disabled>
+                <i class="fa-solid fa-play"></i>
+                Resume Kamera
+            </button>
+
+        </div>
+
+        <input type="file" id="imageUpload" accept="image/*" hidden>
+
+        <div class="camera-container">
+
+            <div id="predictionList">
+                Klik Start Kamera
+            </div>
+
+            <div class="camera-area">
+
+                <video id="camera" autoplay playsinline></video>
+
+                <img id="uploadPreview" class="hide">
+
+            </div>
+
+            <div id="menuBox">
+
+                <div class="menu-title">Hasil Identifikasi</div>
+
+                <div class="ai-status">
+
+                    <div class="ai-dot"></div>
+
+                    <span id="aiStatusText">AI Aktif</span>
+
+                </div>
+
+                <div class="food-image-wrapper">
+                    <img id="foodImage" src="" alt="FoodResult">
+                </div>
+
+                <div id="resultText">
+                    Klik Start Kamera
+                </div>
+
+                <div class="confidence-container">
+
+                    <div class="confidence-label">
+                        Confidence: <span id="confidenceText">0%</span>
+                    </div>
+
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidenceFill"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <audio id="bgMusic" autoplay loop>
+        <source src="musik.mpeg" type="audio/mpeg">
+    </audio>
+
+    <button id="musicBtn" class="music-btn">🔊</button>
+
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        © 2026 | Proyek AI Kalimantan SmartChef
+    </footer>
+
+</body>
+
+</html>
